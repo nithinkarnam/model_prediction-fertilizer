@@ -60,11 +60,11 @@ def main():
 
         # map the predicted value to fertilizer type
         fertilizer_types = {
-            0: "10-26-26",
-            1: "14-35-14",
-            2: "17-17-17",
-            3: "20-20",
-            4: "28-28",
+            0: "Muriate of Potash",
+            1: "Sodium Nitrate",
+            2: "Zn-EDTA",
+            3: "CALCIUM AMMONIUM NITRATE ",
+            4: "AMMONIA SULPHATE ",
             5: "DAP",
             6: "Urea"
         }
