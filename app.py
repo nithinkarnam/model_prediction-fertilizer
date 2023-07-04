@@ -1,34 +1,37 @@
-import pickle
-import streamlit as st 
-
-# load the pickled model
-pickled_model = pickle.load(open('ferti.pkl', 'rb'))
-
-# define soil and crop options
-soil_options = {
-    'Loamy': 2,
-    'Sandy': 4,
-    'Clayey': 1,
-    'Black': 0,
-    'Red': 3
-}
-
-crop_options = {
-    'Sugarcane': 8,
-    'Cotton': 1,
-    'Millets': 4,
-    'Paddy': 6,
-    'Pulses': 7,
-    'Wheat': 10,
-    'Tobacco': 9,
-    'Barley': 0,
-    'Oil seeds': 5,
-    'Ground Nuts': 2,
-    'Other': 3
-}
+import streamlit as st
 
 def main():
-    st.set_page_config(page_title="Fertilizer Forecast App", page_icon=":farm:", layout="wide")
+    # Add CSS for the background and tree animations
+    st.markdown(
+        """
+        <style>
+        body {
+            background-image: url('tree_background.gif');
+            background-repeat: repeat-y;
+            background-size: cover;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+    # Set the width for the sidebar
+    st.markdown(
+        """
+        <style>
+        .sidebar .sidebar-content {
+            width: 300px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.set_page_config(
+        page_title="Fertilizer Forecast App",
+        page_icon=":farm:",
+        layout="wide"
+    )
     st.title("Fertilizer Prediction")
 
     # create sidebar options
@@ -63,8 +66,8 @@ def main():
             0: "Muriate of Potash",
             1: "Sodium Nitrate",
             2: "Zn-EDTA",
-            3: "CALCIUM AMMONIUM NITRATE ",
-            4: "AMMONIA SULPHATE ",
+            3: "CALCIUM AMMONIUM NITRATE",
+            4: "AMMONIA SULPHATE",
             5: "DAP",
             6: "Urea"
         }
@@ -74,3 +77,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
