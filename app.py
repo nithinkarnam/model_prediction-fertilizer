@@ -1,41 +1,39 @@
+import pickle
 import streamlit as st
 
+# Load the pickled model
+pickled_model = pickle.load(open('ferti.pkl', 'rb'))
+
+# Define soil and crop options
+soil_options = {
+    'Loamy': 2,
+    'Sandy': 4,
+    'Clayey': 1,
+    'Black': 0,
+    'Red': 3
+}
+
+crop_options = {
+    'Sugarcane': 8,
+    'Cotton': 1,
+    'Millets': 4,
+    'Paddy': 6,
+    'Pulses': 7,
+    'Wheat': 10,
+    'Tobacco': 9,
+    'Barley': 0,
+    'Oil seeds': 5,
+    'Ground Nuts': 2,
+    'Other': 3
+}
+
 def main():
-    # Add CSS for the background and tree animations
-    st.markdown(
-        """
-        <style>
-        body {
-            background-image: url('tree_background.gif');
-            background-repeat: repeat-y;
-            background-size: cover;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-    # Set the width for the sidebar
-    st.markdown(
-        """
-        <style>
-        .sidebar .sidebar-content {
-            width: 300px;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-    st.set_page_config(
-        page_title="Fertilizer Forecast App",
-        page_icon=":farm:",
-        layout="wide"
-    )
+    st.set_page_config(page_title="Fertilizer Forecast App", page_icon=":farm:", layout="wide")
     st.title("Fertilizer Prediction")
 
-    # create sidebar options
+    # Create sidebar options
     st.sidebar.header('Parameters')
+    st.sidebar.write('Adjust the sliders and select options to predict the recommended fertilizer for your crops.')
     temp = st.sidebar.slider("Temperature (in Celsius)", -30, 50, 25)
     hum = st.sidebar.slider("Humidity", 0, 100, 50)
     nitrogen = st.sidebar.slider("Nitrogen Content in Soil", 0, 200, 100, step=5)
@@ -52,7 +50,7 @@ def main():
         list(crop_options.keys())
     )
 
-    # get the soil and crop parameters
+    # Get the soil and crop parameters
     soil_param = soil_options[soil_type]
     crop_param = crop_options[crop_type]
 
@@ -61,7 +59,7 @@ def main():
     if st.sidebar.button("Predict"):
         prediction = pickled_model.predict(inputs)
 
-        # map the predicted value to fertilizer type
+        # Map the predicted value to a fertilizer type
         fertilizer_types = {
             0: "Muriate of Potash",
             1: "Sodium Nitrate",
@@ -73,8 +71,9 @@ def main():
         }
 
         result = fertilizer_types[prediction[0]]
-        st.success(f"Fertilizer recommended: {result}")
+        st.success(f"The recommended fertilizer for your crops is: {result}")
 
 if __name__ == '__main__':
     main()
 
+   
