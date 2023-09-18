@@ -74,7 +74,7 @@ def main():
         # Map the predicted value to a fertilizer type
         fertilizer_types = {
             0: "UREA",
-            1:'DAP'
+            1: "DAP",
             2: "GROMOR 28-28",
             3: "GROMOR 14-35-14",
             4: "GROMOR 20-20",
