@@ -4,6 +4,18 @@ import streamlit as st
 # Load the pickled model
 pickled_model = pickle.load(open('ferti.pkl', 'rb'))
 
+st.markdown(
+    """
+    <style>
+    .reportview-container {
+        background: url("https://www.ugaoo.com/cdn/shop/articles/shutterstock_301313486.jpg?v=1661870861");
+        background-size: cover;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Define soil and crop options
 soil_options = {
     'Loamy': 2,
@@ -61,13 +73,13 @@ def main():
 
         # Map the predicted value to a fertilizer type
         fertilizer_types = {
-            0: "Muriate of Potash",
-            1: "Sodium Nitrate",
-            2: "Zn-EDTA",
-            3: "CALCIUM AMMONIUM NITRATE",
-            4: "AMMONIA SULPHATE",
-            5: "DAP",
-            6: "Urea"
+            0: "UREA",
+            1:'DAP'
+            2: "GROMOR 28-28",
+            3: "GROMOR 14-35-14",
+            4: "GROMOR 20-20",
+            5: "GROMOR 17-17-17",
+            6: "GROMOR 10-26-26",
         }
 
         result = fertilizer_types[prediction[0]]
