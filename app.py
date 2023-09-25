@@ -34,20 +34,24 @@ def main():
     # Create sidebar options
     st.sidebar.header('Parameters')
     st.sidebar.write('Adjust the sliders and select options to predict the recommended fertilizer for your crops.')
-    temp = st.sidebar.slider("Temperature (in Celsius)", -30, 50, 25)
-    hum = st.sidebar.slider("Humidity", 0, 100, 50)
-    nitrogen = st.sidebar.slider("Nitrogen Content in Soil", 0, 200, 100, step=5)
-    potassium = st.sidebar.slider("Potassium Content in Soil", 0, 200, 100, step=5)
-    phosphorous = st.sidebar.slider("Phosphorous Content in Soil", 0, 200, 100, step=5)
+
+    # Increase the size of the parameter inputs
+    temp = st.sidebar.slider("Temperature (in Celsius)", -30, 50, 25, key="temp")
+    hum = st.sidebar.slider("Humidity", 0, 100, 50, key="hum")
+    nitrogen = st.sidebar.slider("Nitrogen Content in Soil", 0, 200, 100, step=5, key="nitrogen")
+    potassium = st.sidebar.slider("Potassium Content in Soil", 0, 200, 100, step=5, key="potassium")
+    phosphorous = st.sidebar.slider("Phosphorous Content in Soil", 0, 200, 100, step=5, key="phosphorous")
 
     soil_type = st.sidebar.selectbox(
         "Select Soil Type",
-        list(soil_options.keys())
+        list(soil_options.keys()),
+        key="soil_type"
     )
 
     crop_type = st.sidebar.selectbox(
         "Select Crop Type",
-        list(crop_options.keys())
+        list(crop_options.keys()),
+        key="crop_type"
     )
 
     # Get the soil and crop parameters
@@ -75,6 +79,13 @@ def main():
         # Display the output
         st.header('Output')
         st.success(f"The recommended fertilizer for your crops is: {result}")
+
+    
+    st.image("https://via.placeholder.com/400x200", use_column_width=True)
+    st.write("Image 1")
+    
+    st.image("https://via.placeholder.com/400x200", use_column_width=True)
+    st.write("Image 2")
 
 if __name__ == '__main__':
     main()
