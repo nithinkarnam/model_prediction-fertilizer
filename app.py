@@ -4,16 +4,6 @@ import streamlit as st
 # Load the pickled model
 pickled_model = pickle.load(open('ferti.pkl', 'rb'))
 
-custom_css = """
-<style>
-body {
-    background: linear-gradient(45deg, gold, blue, yellow, pink);
-}
-
-</style>
-"""
-st.markdown(custom_css, unsafe_allow_html=True)
-
 # Define soil and crop options
 soil_options = {
     'Loamy': 2,
