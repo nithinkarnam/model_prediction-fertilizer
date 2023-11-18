@@ -27,6 +27,31 @@ crop_options = {
     'Other': 3
 }
 
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #f0f0f0;  /* Replace with your desired background color */
+        background-image: url("https://www.ugaoo.com/cdn/shop/articles/shutterstock_301313486.jpg?v=1661870861");
+        background-size: cover;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Dark Theme
+st.markdown(
+    """
+    <style>
+    .stSidebar {
+        background-color: #121212;
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 def main():
     st.set_page_config(page_title="Fertilizer Forecast App", page_icon=":farm:", layout="wide")
     st.title("Fertilizer Prediction")
