@@ -4,30 +4,16 @@ import streamlit as st
 # Load the pickled model
 pickled_model = pickle.load(open('ferti.pkl', 'rb'))
 
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: #f0f0f0;  /* Replace with your desired background color */
-        background-size: cover;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+custom_css = """
+<style>
+[data-testid="stAppViewContainer"]
+{
+  background-image: linear-gradient(-310deg,cyan,black,maroon,blue,brown,yellow ,red);
+}
+</style>
+"""
+st.markdown(custom_css, unsafe_allow_html=True)
 
-# Dark Theme
-st.markdown(
-    """
-    <style>
-    .stSidebar {
-        background-color: #121212;
-        color: white;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 # Define soil and crop options
 soil_options = {
     'Loamy': 2,
