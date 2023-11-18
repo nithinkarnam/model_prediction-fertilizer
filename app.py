@@ -6,11 +6,6 @@ pickled_model = pickle.load(open('ferti.pkl', 'rb'))
 
 custom_css = """
 <style>
-[data-testid="stSidebar"]
-{
- background: linear-gradient(270deg,purple,violet,maroon);
-  background: linear-gradient(245deg,#8a2387,#e94057,#f27121);
-}
 body {
     background: linear-gradient(45deg, gold, blue, yellow, pink);
 }
