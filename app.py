@@ -6,10 +6,15 @@ pickled_model = pickle.load(open('ferti.pkl', 'rb'))
 
 custom_css = """
 <style>
-[data-testid="stAppViewContainer"]
+[data-testid="stSidebar"]
 {
-  background-image: linear-gradient(-310deg,cyan,black,maroon,blue,brown,yellow ,red);
+ background: linear-gradient(270deg,purple,violet,maroon);
+  background: linear-gradient(245deg,#8a2387,#e94057,#f27121);
 }
+body {
+    background: linear-gradient(45deg, gold, blue, yellow, pink);
+}
+
 </style>
 """
 st.markdown(custom_css, unsafe_allow_html=True)
