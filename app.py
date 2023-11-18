@@ -83,7 +83,7 @@ def main():
 
     
     st.image("https://st.adda247.com/https://wpassets.adda247.com/wp-content/uploads/multisite/sites/5/2022/05/26151136/Fertilizers.png", use_column_width=True)
-    st.write("FARMER IS THE KING")
+    st.write("Harvesting Success: Accurate Fertilizer Predictions for Sustainable Agriculture")
     
     st.image("https://www.ugaoo.com/cdn/shop/articles/shutterstock_301313486.jpg?v=1661870861", use_column_width=True)
     st.write("FARMING NEVER HARMS")
